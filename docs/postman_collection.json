@@ -1,0 +1,9 @@
+{"info":{"name":"Bonkers Corner API","schema":"https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+"item":[
+ {"name":"Auth/Register","request":{"method":"POST","url":"{{base}}/auth/register","body":{"mode":"raw","raw":"{\"name\":\"Test\",\"email\":\"t@t.com\",\"password\":\"Passw0rd!\"}"},"header":[{"key":"Content-Type","value":"application/json"}]}},
+ {"name":"Auth/Login","request":{"method":"POST","url":"{{base}}/auth/login","body":{"mode":"raw","raw":"{\"email\":\"t@t.com\",\"password\":\"Passw0rd!\"}"},"header":[{"key":"Content-Type","value":"application/json"}]}},
+ {"name":"Products/List","request":{"method":"GET","url":"{{base}}/products?limit=20"}},
+ {"name":"Orders/Create","request":{"method":"POST","url":"{{base}}/orders","header":[{"key":"Authorization","value":"Bearer {{token}}"},{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"items\":[{\"product\":\"<id>\",\"qty\":1}],\"shippingAddress\":{\"fullName\":\"A\",\"phone\":\"9\",\"line1\":\"x\",\"city\":\"y\",\"state\":\"z\",\"pincode\":\"1\"}}"}}},
+ {"name":"Admin/Dashboard","request":{"method":"GET","url":"{{base}}/admin/dashboard","header":[{"key":"Authorization","value":"Bearer {{admin_token}}"}]}}
+],
+"variable":[{"key":"base","value":"http://localhost:5000/api"}]}

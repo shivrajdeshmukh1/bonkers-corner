@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import * as c from '../controllers/order.controller.js';
+import { optionalAuth, requireAuth } from '../middleware/auth.js';
+import { createOrderRules } from '../validators/order.validator.js';
+import { validate } from '../middleware/validate.js';
+const r = Router();
+r.post('/', optionalAuth, createOrderRules, validate, c.createOrder);
+r.get('/mine', requireAuth, c.myOrders);
+r.get('/:id', requireAuth, c.byId);
+export default r;
